@@ -1,0 +1,65 @@
+﻿@model List<Product>
+
+<div class="card shadow border-0 p-5 my-0 ml-0 mb-2">
+
+    <div class="card-header bg-secondary bg-gradient ml-0 py-2">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h3 class="text-white py-2">Product List</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-body p-3">
+        <div class="row pb-1">
+            <div class="col-6 text-end">
+               
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Product" asp-action="CreateUpdate" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Create New Product
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <table id="tblData" class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Price</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th></th>
+            </tr>
+        </thead>
+        @* <tbody>
+            @foreach (var list in Model)
+            {
+                <tr>
+                    <td>@list.Title</td>
+                    <td>@list.ISBN</td>
+                    <td>@list.ListPrice</td>
+                    <td>@list.Author</td>
+                    <td>@list.Category.Name</td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Product" asp-action="CreateUpdate" asp-route-id="@list.Id" class="btn btn-primary mx-2">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+                            <a asp-controller="Product" asp-action="Delete" asp-route-id="@list.Id" class="btn btn-danger mx-2">
+                                <i class="bi bi-trash"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody> *@
+
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/product.js"></script>
+}

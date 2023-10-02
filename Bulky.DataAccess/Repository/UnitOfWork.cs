@@ -1,0 +1,28 @@
+﻿using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Repository.IRepository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BulkyBook.DataAccess.Repository
+{
+    public class UnitOfWork : IUnitOfWork
+    {
+        private readonly ApplicationDbContext _db; //This is a private field that holds an instance of ApplicationDbContext. ApplicationDbContext is a class commonly used in Entity Framework to interact with the database.
+        public ICategoryRepository Category {  get; private set; }
+        public IProductRepository Product {  get; private set; }
+        public UnitOfWork(ApplicationDbContext db)
+        {
+            _db = db;
+            Category = new CategoryRepository(_db);
+            Product = new ProductRepository(_db);
+        }
+
+        public void Save()
+        {
+            _db.SaveChanges();
+        }
+    }
+}
